@@ -8,7 +8,7 @@
         Title="EmpFinderWindow" Height="450" Width="475">
     <Grid>
         <StackPanel  Width="150" Orientation="Vertical" HorizontalAlignment="Left">
-            <ListView x:Name="LVDep" Width="150" Height="439" BorderBrush="Black" BorderThickness="3" Foreground="Black" Background="{x:Null}">
+            <ListView x:Name="LVDep" Width="150" Height="425" BorderBrush="Black" BorderThickness="3" Foreground="Black" Background="{x:Null}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Departments" Width="150" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
@@ -16,8 +16,16 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
-            <TextBox x:Name="SearchTB" Width="200" BorderThickness="2" Margin="0,15,30,0" BorderBrush="#FF00030C" SelectionBrush="Black"></TextBox>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Width="280" Margin="0,0,15,0">
+            <TextBox x:Name="SearchTB" Width="200" BorderThickness="2" Margin="0,15,30,0" BorderBrush="#FF00030C" SelectionBrush="Black" TextChanged="SearchTB_TextChanged"></TextBox>
+            <ListView x:Name="LVSender" Margin="0,15,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                        <GridViewColumn Header="Fname" DisplayMemberBinding="{Binding FName}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
     </Grid>
 </Window>

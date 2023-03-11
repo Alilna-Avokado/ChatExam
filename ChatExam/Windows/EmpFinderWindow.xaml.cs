@@ -26,5 +26,18 @@ namespace ChatExam.Windows
             InitializeComponent();
             LVDep.ItemsSource = db.Department.ToList();
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var search = db.Sender.ToList();
+
+            if (SearchTB.Text != String.Empty && SearchTB.Text != null)
+            {
+                search = db.Sender.Where(x => x.Name.Contains(SearchTB.Text)).ToList();
+            }
+
+            LVSender.ItemsSource = search;
+
+        }
     }
 }
