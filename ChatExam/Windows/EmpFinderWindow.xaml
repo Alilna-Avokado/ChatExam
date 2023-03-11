@@ -1,0 +1,23 @@
+﻿<Window x:Class="ChatExam.Windows.EmpFinderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatExam.Windows"
+        mc:Ignorable="d"
+        Title="EmpFinderWindow" Height="450" Width="475">
+    <Grid>
+        <StackPanel  Width="150" Orientation="Vertical" HorizontalAlignment="Left">
+            <ListView x:Name="LVDep" Width="150" Height="439" BorderBrush="Black" BorderThickness="3" Foreground="Black" Background="{x:Null}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Departments" Width="150" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+            <TextBox x:Name="SearchTB" Width="200" BorderThickness="2" Margin="0,15,30,0" BorderBrush="#FF00030C" SelectionBrush="Black"></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
