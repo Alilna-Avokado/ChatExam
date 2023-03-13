@@ -1,0 +1,39 @@
+﻿<Window x:Class="ChatExam.Windows.ChatDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatExam.Windows"
+        mc:Ignorable="d"
+        Title="ChatDialogWindow" Height="450" Width="475">
+    <Grid>
+        <StackPanel  Width="150" Orientation="Vertical" HorizontalAlignment="Left">
+            <TextBox x:Name="TopicInChatTB" Margin="10" IsEnabled="False"/>
+            <ListView x:Name="LVChatMemb" Width="150" Height="195" BorderBrush="Black" BorderThickness="3" Foreground="Black" Background="{x:Null}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="AddBtn" Height="25" Content="Add User" BorderThickness="3" Background="{x:Null}" BorderBrush="Black"></Button>
+            <Button x:Name="ChangeBtn" Height="25" Content="Change Topic" BorderThickness="3" Background="{x:Null}" BorderBrush="Black"></Button>
+            <Button x:Name="ExitChat" Height="25" Content="Leave Chatroom" BorderThickness="3" Background="{x:Null}" BorderBrush="Black" Click="ExitChat_Click"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+            <TextBox x:Name="ChatTB" Height="106" Width="390" BorderBrush="Black" SelectionBrush="Black" BorderThickness="3"></TextBox>
+            <Button x:Name="SendBtn" Content="Send" Width="87" BorderBrush="Black" BorderThickness="3" Background="#FF7EA9DC" FontWeight="Bold" FontSize="14" Click="SendBtn_Click"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="315" Width="295">
+            <ListView x:Name="LVChatDialog" Width="295">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Date}"></GridViewColumn>
+                        <GridViewColumn Header="Sender" DisplayMemberBinding="{Binding Sender.Name}"></GridViewColumn>
+                        <GridViewColumn Header="Message" DisplayMemberBinding="{Binding Message}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Window>

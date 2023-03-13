@@ -11,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ChatExam.Windows
@@ -24,7 +25,7 @@ namespace ChatExam.Windows
         public GeneralWindow()
         {
             InitializeComponent();
-            LVGChat.ItemsSource = db.ChatMessage.ToList();
+            LVGChat.ItemsSource = db.Sender.ToList();
             
         }
 
@@ -37,6 +38,18 @@ namespace ChatExam.Windows
         private void CloseApplicBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void LVGChat_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var idChat = LVGChat.SelectedItem as Sender;
+                var item = db.Chatroom.Where(x => x.ID == idChat.Chatroom_ID).FirstOrDefault();
+                new ChatDialogWindow(item).Show();
+                this.Close();
+            }
+            catch (Exception ex) { MessageBox.Show($"{ex}"); }
         }
     }
 }

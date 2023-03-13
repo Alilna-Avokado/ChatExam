@@ -40,6 +40,7 @@ namespace ChatExam
 
             if (auth != null)
             {
+                App.employee = auth;    
                 new GeneralWindow().Show();
                 this.Close();
                 return;
